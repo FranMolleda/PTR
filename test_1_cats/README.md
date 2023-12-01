@@ -15,7 +15,9 @@
 - Here, find a valid GIPHY API KEY:
   \*/
 
-const GIPHY_API_KEY = "2cZkiFTqyiS79UdSapL6LHWlublpl7iy";
+const GIPHY_API_KEY = "wy1NxNap59RuLj3876VrzDHH6xy5XcE4";
+
+Endpoint https://api.giphy.com/v1/gifs/search?api_key=wy1NxNap59RuLj3876VrzDHH6xy5XcE4&q=holsa&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips
 
 - 🇪🇸
 - Dadas estas 2 APIs:
@@ -30,6 +32,8 @@ const GIPHY_API_KEY = "2cZkiFTqyiS79UdSapL6LHWlublpl7iy";
 - y el texto a la derecha, todo centrado verticalmente.
 -
 - Aquí tienes la API Key de Giphy:
-  \*/
 
-const GIPHY_API_KEY = "2cZkiFTqyiS79UdSapL6LHWlublpl7iy"
+Endpoint https://api.giphy.com/v1/gifs/search?api_key=wy1NxNap59RuLj3876VrzDHH6xy5XcE4&q=holsa&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips
+\*/
+
+const GIPHY_API_KEY = "wy1NxNap59RuLj3876VrzDHH6xy5XcE4"
