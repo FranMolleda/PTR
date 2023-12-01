@@ -6,6 +6,7 @@ function App() {
   const [catData, setCatData] = useState("");
   const [threeWords, setThreeWords] = useState([]);
   const [catGift, setCatGift] = useState([]);
+  const [loading, setLoading] = useState(true);
   const giphyKey = process.env.REACT_APP_GIPHY_KEY;
 
   const fetchCatData = async () => {
@@ -34,14 +35,16 @@ function App() {
 
   const fetchGift = async (threeWords) => {
     try {
+      setLoading(true);
       const response = await axios(
         `https://api.giphy.com/v1/gifs/search?api_key=${giphyKey}=${threeWords}&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips}`
       );
       const giftSelected = response.data.data[0];
-      console.log(giftSelected);
       setCatGift(giftSelected);
     } catch (error) {
       console.log("Error fetching giphy data:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -54,8 +57,25 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello world</h1>
-      <p>{catData}</p>
+      <section className="container">
+        {loading ? (
+          <div className="imageContainer">
+            <p>Loading...</p>
+          </div>
+        ) : (
+          catGift && (
+            <div className="imageContainer">
+              <img
+                src={catGift.images?.downsized_large?.url}
+                alt="giphyImage"
+              />
+            </div>
+          )
+        )}
+        <div className="textContainer">
+          <p>{catData}</p>
+        </div>
+      </section>
     </div>
   );
 }
