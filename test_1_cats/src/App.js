@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import axios from "axios";
+const axios = require("axios");
 
 function App() {
   const [catData, setCatData] = useState("");
   const [threeWords, setThreeWords] = useState([]);
-  const [catGift, setCatGift] = useState([]);
+  const [catGift, setCatGift] = useState(null);
   const [loading, setLoading] = useState(true);
   const giphyKey = process.env.REACT_APP_GIPHY_KEY;
 
@@ -20,18 +20,28 @@ function App() {
   };
 
   const getData = async () => {
-    try {
-      const data = await fetchCatData();
-      setCatData(data);
-      const convertArray = [data];
-      const filterThreeWorsds = convertArray[0].split(" ").slice(0, 3);
-      setThreeWords(filterThreeWorsds);
-    } catch (error) {
-      console.error("Error fetching cat data:", error);
+    if (catData === "") {
+      try {
+        setLoading(true);
+        const data = await fetchCatData();
+        setCatData(data);
+        const convertArray = [data];
+        const filterThreeWorsds = convertArray[0].split(" ").slice(0, 3);
+        setThreeWords(filterThreeWorsds);
+      } catch (error) {
+        console.error("Error fetching cat data:", error);
+      } finally {
+        setLoading(false);
+      }
     }
+    return;
   };
+  console.log(catData);
+  console.log(catGift);
 
-  useEffect(() => getData, []);
+  useEffect(() => {
+    getData();
+  }, []);
 
   const fetchGift = async (threeWords) => {
     try {
@@ -63,12 +73,9 @@ function App() {
             <p>Loading...</p>
           </div>
         ) : (
-          catGift && (
+          catGift !== null && (
             <div className="imageContainer">
-              <img
-                src={catGift.images?.downsized_large?.url}
-                alt="giphyImage"
-              />
+              <img src={catGift.images?.downsized?.url} alt="giphyImage" />
             </div>
           )
         )}
