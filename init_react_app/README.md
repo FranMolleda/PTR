@@ -187,3 +187,57 @@ Le diremos que Sí, este paquete es necesario para proporcionar un servidor de d
 
 Visita http://localhost:8080 en tu navegador.
 ````
+
+# Configuración de Pruebas Unitarias
+
+Este proyecto utiliza Jest y React Testing Library para las pruebas unitarias. Aquí hay algunos pasos para comenzar con las pruebas:
+
+## 1. Instalar Dependencias de Pruebas
+
+`npm install --save-dev jest @testing-library/react @testing-library/jest-dom`
+
+## 2. Configurar Jest
+
+Crea un archivo de configuración para Jest llamado jest.config.js en la raíz de tu proyecto:
+
+```// jest.config.js
+module.exports = {
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+  // Otras configuraciones personalizadas pueden ir aquí
+};
+```
+
+## 3. Actualizar Scripts en package.json
+
+Modifica los scripts de prueba en tu archivo package.json:
+
+```"scripts": {
+  "test": "jest"
+}
+```
+
+## 4. Estructura de Carpetas para Pruebas
+
+Organiza tus archivos de prueba en una carpeta llamada **tests** o con la extensión .test.js. Por ejemplo, si tienes un componente App, el archivo de prueba podría ser App.test.js.
+
+## 5. Escribir Pruebas
+
+Escribe tus pruebas utilizando Jest y React Testing Library. Aquí hay un ejemplo básico para el componente App:
+
+```// __tests__/App.test.js
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import App from '../src/components/App';
+
+test('renders greeting text', () => {
+  render(<App />);
+  expect(screen.getByText(/Hola, Mundo!/i)).toBeInTheDocument();
+});
+```
+
+## 6. Ejecutar Pruebas
+
+Ejecuta tus pruebas con el comando:
+
+`npm test`
