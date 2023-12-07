@@ -1,0 +1,10 @@
+.container {
+    width: 100%;
+    max-width: 1200px; /* Puedes ajustar el ancho máximo según tus necesidades */
+    margin: 0 auto; /* Centra el contenedor en la página */
+    padding: 20px; /* Añade relleno alrededor del contenido */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+    border: 1px solid #ccc; /* Añade un borde alrededor del contenedor */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añade una sombra al contenedor */
+  }
+  
