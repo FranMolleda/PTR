@@ -1,0 +1,11 @@
+.listaLecturaLibro{
+    pointer-events: none;
+}
+
+.libroListaLectura{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    list-style: none;
+}

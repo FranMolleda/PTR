@@ -1,0 +1,9 @@
+
+.cover{
+    width: 200px;
+    height: 300px;
+}
+
+.cover:hover{
+    cursor:pointer
+}
