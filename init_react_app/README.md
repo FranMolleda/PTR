@@ -176,7 +176,7 @@ Editar el archivo package.json para incluir scripts para iniciar y construir la 
 
 Aparecerá este mensaje:
 
-````> init_react_app@1.0.0 start /Users/fran/Documents/PTR/init_react_app
+```> init_react_app@1.0.0 start /Users/fran/Documents/PTR/init_react_app
 > webpack serve --mode development --open
 
 [webpack-cli] For using 'serve' command you need to install: 'webpack-dev-server' package.
@@ -186,4 +186,4 @@ Le diremos que Sí, este paquete es necesario para proporcionar un servidor de d
 
 
 Visita http://localhost:8080 en tu navegador.
-````
+
