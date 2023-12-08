@@ -176,11 +176,13 @@ Editar el archivo package.json para incluir scripts para iniciar y construir la 
 
 Aparecerá este mensaje:
 
-```> init_react_app@1.0.0 start /Users/fran/Documents/PTR/init_react_app
+```
+> init_react_app@1.0.0 start /Users/fran/Documents/PTR/init_react_app
 > webpack serve --mode development --open
 
 [webpack-cli] For using 'serve' command you need to install: 'webpack-dev-server' package.
-[webpack-cli] Would you like to install 'webpack-dev-server' package? (That will run 'npm install -D webpack-dev-server') (Y/n)```
+[webpack-cli] Would you like to install 'webpack-dev-server' package? (That will run 'npm install -D webpack-dev-server') (Y/n)
+```
 
 Le diremos que Sí, este paquete es necesario para proporcionar un servidor de desarrollo y actualizar automáticamente tu aplicación en el navegador cuando realizas cambios en el código.
 
