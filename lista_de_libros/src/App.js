@@ -1,7 +1,30 @@
+import AvailableBooks from "./components/available/AvailableBooks";
+import ReadingList from "./components/reading/ReadingList";
+import { useState } from "react";
+import listBooks from "./books.json";
+import "./App.css";
+
 function App() {
+  const { library } = listBooks;
+  const [readingList, SetReadingList] = useState([]);
+  const [availableList, SetAvailableList] = useState(library);
+
   return (
-    <div className="App">
-      <h1>Lista de lectura</h1>
+    <div className="container">
+      <AvailableBooks
+        SetReadingList={SetReadingList}
+        readingList={readingList}
+        availableList={availableList}
+        SetAvailableList={SetAvailableList}
+      />
+      {readingList.length > 0 && (
+        <ReadingList
+          readingList={readingList}
+          SetReadingList={SetReadingList}
+          availableList={availableList}
+          SetAvailableList={SetAvailableList}
+        />
+      )}
     </div>
   );
 }

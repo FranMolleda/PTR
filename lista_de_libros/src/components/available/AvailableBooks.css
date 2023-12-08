@@ -1,0 +1,39 @@
+
+
+.availableBooksContainer {
+  display: flex;
+}
+
+.availableBooksItem {
+  flex: 2/3; /* Por defecto, todos los items ocupan la misma cantidad de espacio */
+}
+
+.availableBooksItemLarge {
+  flex: 1/3; /* El primer item ocupa el doble de espacio */
+}
+
+.librosDisponibles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+.libro {
+    flex-basis: calc(33.33% - 10px);
+    min-width: 300px;
+    margin-inline: auto;
+    list-style:none
+  } 
+
+  /* contenedor Lista de lectura */
+
+  .readingListContainer{
+    border: 1px solid #ccc; /* Añade un borde alrededor del contenedor */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añade una sombra al contenedor */
+    margin: 0 auto; /* Centra el contenedor en la página */
+    padding: 20px; /* Añade relleno alrededor del contenido */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+  }
+
