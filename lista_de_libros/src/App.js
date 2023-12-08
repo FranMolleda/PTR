@@ -10,7 +10,7 @@ function App() {
   const [availableList, SetAvailableList] = useState(library);
 
   return (
-    <div className="container, availableBooksContainer">
+    <div className="container">
       <AvailableBooks
         SetReadingList={SetReadingList}
         readingList={readingList}
