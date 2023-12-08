@@ -1,4 +1,5 @@
 .container {
+    display: flex;
     width: 100%;
     max-width: 1200px; /* Puedes ajustar el ancho máximo según tus necesidades */
     margin: 0 auto; /* Centra el contenedor en la página */
