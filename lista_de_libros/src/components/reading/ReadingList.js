@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import BookCard from "../bookCard/BookCard";
 import "./ReadingList.css";
 
@@ -11,9 +12,19 @@ const ReadingList = ({
     const filterList = readingList.filter(
       (bookSelected) => bookSelected !== book
     );
-    SetReadingList((prevList) => filterList);
+    /*     localStorage.setItem("readingList", JSON.stringify(filterList));
+     */ SetReadingList((prevList) => filterList);
     SetAvailableList((prevAvailableList) => [...availableList, { book: book }]);
+    localStorage.setItem(
+      "availableList",
+      JSON.stringify([...availableList, { book: book }])
+    );
+    localStorage.setItem("readingList", JSON.stringify(filterList));
   };
+
+  useEffect(() => {
+    localStorage.setItem("readingList", JSON.stringify(readingList));
+  }, [readingList]);
 
   return (
     <div className="readingListContainer">
