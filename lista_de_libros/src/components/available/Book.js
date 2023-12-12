@@ -9,16 +9,24 @@ const Book = ({
   SetAvailableList,
 }) => {
   const handleButtonClick = (book) => {
+    const getReadingList = JSON.parse(localStorage.getItem("readingList"));
     const availableListFiltered = availableList.filter(
       (availableBook) => availableBook.book !== book
     );
+    localStorage.setItem(
+      "availableList",
+      JSON.stringify(availableListFiltered)
+    );
     SetAvailableList((prevList) => availableListFiltered);
     if (readingList.length === 0) {
-      return SetReadingList([book]);
+      localStorage.setItem("readingList", JSON.stringify([book]));
+      SetReadingList([book]);
     } else if (readingList.length > 0 && !readingList.includes(book)) {
-      return SetReadingList((prevBooks) => [...prevBooks, book]);
-    } else {
-      return;
+      SetReadingList((prevBooks) => [...prevBooks, book]);
+      localStorage.setItem(
+        "readingList",
+        JSON.stringify([...getReadingList, book])
+      );
     }
   };
 
