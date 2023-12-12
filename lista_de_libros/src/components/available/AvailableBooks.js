@@ -1,81 +1,79 @@
-import Book from "./Book";
-import "./AvailableBooks.css";
 import { useState, useEffect } from "react";
+import BookCard from "../bookCard/BookCard";
+import "./AvailableBooks.css";
+import GenreSelect from "./GenreSelect";
 
 const AvailableBooks = ({
   readingList,
-  SetReadingList,
+  setReadingList,
   availableList,
-  SetAvailableList,
+  setAvailableList,
 }) => {
   const [genreList, setGenreList] = useState(availableList);
   const [genreSelected, setGenreSelected] = useState("todos");
 
-  /* almacenamos en un nuevo array todas los generos */
-  const genreType = availableList.map((book) => {
-    return book.book.genre;
-  });
+  const handleButtonClick = async (book) => {
+    if (
+      !readingList.some((selectedBook) => selectedBook.title === book.title)
+    ) {
+      const availableListFiltered = availableList.filter(
+        (availableBook) => availableBook.book !== book
+      );
 
-  /* quitamos duplicados */
-  const genreFilter = new Set(genreType);
+      setAvailableList(availableListFiltered);
 
-  /* copiamos en un array los generos sin duplicados */
-  const optinosGenre = [...genreFilter];
+      localStorage.setItem(
+        "availableList",
+        JSON.stringify(availableListFiltered)
+      );
 
-  const handleSelectGenre = (e) => {
-    const genreValue = e.target.value;
-    setGenreSelected((prevGenreSlected) => genreValue);
+      if (readingList?.length === 0) {
+        setReadingList([book]);
+        localStorage.setItem("readingList", JSON.stringify([book]));
+      } else if (readingList?.length > 0 && !readingList.includes(book)) {
+        setReadingList((prevBooks) => [...prevBooks, book]);
+        localStorage.setItem(
+          "readingList",
+          JSON.stringify([...readingList, book])
+        );
+      }
+    }
   };
 
   useEffect(() => {
     const filterGenre = () => {
-      if (genreList.length === 0) {
-        setGenreSelected((prevGenreSelecte) => "todos");
+      if (genreList?.length === 0) {
+        setGenreSelected("todos");
       }
-      setGenreList((prevList) => availableList);
+      setGenreList(availableList);
 
       if (genreSelected !== "todos") {
         const genrefiltered = availableList.filter(
           (bookAvailable) => bookAvailable.book.genre === genreSelected
         );
-        return setGenreList((prevList) => genrefiltered);
+        setGenreList(genrefiltered);
       }
     };
     filterGenre();
-  }, [genreSelected, availableList, genreList.length]);
+  }, [genreSelected, availableList, genreList?.length]);
 
   return (
     <div>
       <div>
-        <h1>{availableList.length} Libros disponibles</h1>
-        {readingList.length > 0 && (
+        <h1>{availableList?.length} Libros disponibles</h1>
+        {readingList?.length > 0 && (
           <h4>{readingList.length} en la lista de lectura</h4>
         )}
-        <div>
-          <label>Genero</label>
-          <select
-            name="genre"
-            id="genre"
-            onChange={(e) => handleSelectGenre(e)}
-          >
-            <option value="todos">Todos</option>
-            {optinosGenre.map((genre) => (
-              <option key={genre} value={genre}>
-                {genre}
-              </option>
-            ))}
-          </select>
-        </div>
+        <GenreSelect
+          availableList={availableList}
+          setGenreSelected={setGenreSelected}
+        />
         <ul className="librosDisponibles">
-          {genreList.map((bookAvailable) => (
+          {genreList?.map((bookAvailable) => (
             <li className="libro" key={bookAvailable.book.title}>
-              <Book
-                bookAvailable={bookAvailable.book}
-                SetReadingList={SetReadingList}
-                readingList={readingList}
-                availableList={availableList}
-                SetAvailableList={SetAvailableList}
-              />
+              <div onClick={() => handleButtonClick(bookAvailable.book)}>
+                <BookCard book={bookAvailable.book} />
+              </div>
             </li>
           ))}
         </ul>
