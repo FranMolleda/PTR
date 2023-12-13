@@ -15,6 +15,7 @@ function App() {
   useEffect(() => {
     setAvailableList(getAvailableList || library);
     setReadingList(getReadingList || []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /* Para guardar y mostrar los cambios en 2 pentañas con la misma url, utilizando las varaible almacenadas en localStorage */
