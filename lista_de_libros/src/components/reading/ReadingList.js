@@ -4,25 +4,30 @@ import "./ReadingList.css";
 
 const ReadingList = ({
   readingList,
-  SetReadingList,
-  SetAvailableList,
+  setReadingList,
+  setAvailableList,
   availableList,
 }) => {
   const handleDelete = (book) => {
     const filterList = readingList.filter(
       (bookSelected) => bookSelected !== book
     );
-    /*     localStorage.setItem("readingList", JSON.stringify(filterList));
-     */ SetReadingList((prevList) => filterList);
-    SetAvailableList((prevAvailableList) => [...availableList, { book: book }]);
+    setReadingList(filterList);
+    setAvailableList((prevAvailableList) => [...availableList, { book }]);
+
     localStorage.setItem(
       "availableList",
-      JSON.stringify([...availableList, { book: book }])
+      JSON.stringify([...availableList, { book }])
     );
-    localStorage.setItem("readingList", JSON.stringify(filterList));
+    if (filterList?.length === 0) {
+      localStorage.removeItem("readingList");
+    } else {
+      localStorage.setItem("readingList", JSON.stringify(filterList));
+    }
   };
 
   useEffect(() => {
+    // Actualizar el almacenamiento local con la lista de lectura actualizada
     localStorage.setItem("readingList", JSON.stringify(readingList));
   }, [readingList]);
 
@@ -30,7 +35,7 @@ const ReadingList = ({
     <div className="readingListContainer">
       <h1>Lista de Lectura</h1>
       <ul>
-        {readingList.map((book) => (
+        {readingList?.map((book) => (
           <li key={book.title} className="libroListaLectura">
             <button onClick={() => handleDelete(book)}>x</button>
             <BookCard book={book} className="listaLecturaLibro" />

@@ -2,17 +2,16 @@ import AvailableBooks from "./components/available/AvailableBooks";
 import ReadingList from "./components/reading/ReadingList";
 import { useState, useEffect } from "react";
 import listBooks from "./books.json";
-import "./App.css";
 
-function App() {
+export function App() {
   const { library } = listBooks;
   const [readingList, setReadingList] = useState([]);
   const [availableList, setAvailableList] = useState(library);
 
-  const getAvailableList = JSON.parse(localStorage.getItem("availableList"));
-  const getReadingList = JSON.parse(localStorage.getItem("readingList"));
-
   useEffect(() => {
+    const getAvailableList = JSON.parse(localStorage.getItem("availableList"));
+    const getReadingList = JSON.parse(localStorage.getItem("readingList"));
+
     setAvailableList(getAvailableList || library);
     setReadingList(getReadingList || []);
   }, []);
@@ -69,5 +68,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
