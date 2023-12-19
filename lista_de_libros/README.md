@@ -81,3 +81,7 @@ Buena suerte y ¡diviértete programando!
 - Concepto de uso de arrastrar libros: https://dribbble.com/shots/19351938-Mybooks-Page-Board
 
 - Concepto de landing para una aplicación de libros: https://dribbble.com/shots/16279204-Book-Web-Store-Concept
+
+## Desplegado en:
+
+https://listalectura-franmolleda.netlify.app/
