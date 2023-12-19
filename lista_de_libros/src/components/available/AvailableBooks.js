@@ -56,7 +56,6 @@ const AvailableBooks = ({
     };
     filterGenre();
   }, [genreSelected, availableList, genreList?.length]);
-
   return (
     <div>
       <div>
