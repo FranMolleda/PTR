@@ -6,7 +6,7 @@ import {
 
 const router = express.Router();
 
-const path = '/item';
+const path = '/api/items';
 
 // Pasa la variable products al controlador a través de req (rep.products)
 router.get(`${path}`, (req, res) => getData(req, res));

@@ -1,9 +1,14 @@
 import express from 'express';
+import cors from 'cors';
 import fs from 'fs';
 import process from 'process';
 import itemsRouter from './routes/items.js';
 
 const app = express();
+
+
+app.use(cors());
+
 
 let products; // Variable para almacenar los productos
 
