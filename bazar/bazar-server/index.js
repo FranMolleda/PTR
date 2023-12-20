@@ -1,26 +1,3 @@
-/* import express from "express";
-import process from "process";
-import fs from "fs";
-
-const app = express();
-
-app.get("/", (req, res) => {
-  res.send("Hello from Bazary!");
-});
-
-app.use(express.static("public"));
-
-app.get("/products", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  const filePath = process.cwd() + "/" + "products.json";
-  const fileData = fs.readFileSync(filePath);
-  const products = JSON.parse(fileData);
-  res.send(products);
-});
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-}); */
-
 import express from 'express';
 import fs from 'fs';
 import process from "process";
