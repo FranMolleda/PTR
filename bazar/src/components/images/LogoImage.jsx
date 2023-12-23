@@ -1,10 +1,11 @@
-import viteLogo from "/vite.svg";
+import envioLogo from "/envio.png";
+import "./LogoImage.css";
 
 const LogoImage = () => {
   return (
-    <div>
+    <div className="logoImageContainer">
       <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-        <img src={viteLogo} className="logo" alt="Vite logo" />
+        <img src={envioLogo} className="logo" alt="Vite logo" />
       </a>
     </div>
   );

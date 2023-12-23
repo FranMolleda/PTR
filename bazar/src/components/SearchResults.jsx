@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
+// SearchResults.jsx
+
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import SearchBar from "./ui/SearchBar";
 import LogoImage from "./images/LogoImage";
+import ReturnButton from "./ui/ReturnButton";
 
 function SearchResults() {
   const location = useLocation();
@@ -28,7 +31,7 @@ function SearchResults() {
     <div>
       <div>
         <LogoImage />
-        <SearchBar />
+        <SearchBar value={search} />
       </div>
       <h2>Resultados de la búsqueda para: {search}</h2>
       <div>
@@ -38,6 +41,7 @@ function SearchResults() {
           </Link>
         ))}
       </div>
+      <ReturnButton />
     </div>
   );
 }

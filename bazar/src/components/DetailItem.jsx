@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import SearchBar from "./SearchBar";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import LogoImage from "./images/LogoImage";
+import ReturnButton from "./ui/ReturnButton";
+import SearchBar from "./ui/SearchBar";
 
 const DetailItem = () => {
   const [item, setItem] = useState(null);
@@ -34,7 +35,11 @@ const DetailItem = () => {
           <p>{item.description}</p>
         </>
       )}
+
       <button>Comprar</button>
+      <div>
+        <ReturnButton />
+      </div>
     </>
   );
 };

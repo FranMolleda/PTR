@@ -1,0 +1,5 @@
+.logoImageContainer img{
+    height: 9em;
+    will-change: filter;
+    transition: filter 300ms;
+}
