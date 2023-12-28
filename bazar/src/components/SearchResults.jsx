@@ -1,6 +1,4 @@
-// SearchResults.jsx
-
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import SearchBar from "./ui/SearchBar";
@@ -11,6 +9,7 @@ function SearchResults() {
   const location = useLocation();
   const search = new URLSearchParams(location.search).get("search");
   const [productsSearched, setProductsSearched] = useState([]);
+  const [valueSearch, setValueSearch] = useState(search || "");
 
   useEffect(() => {
     const filterItems = async () => {
@@ -31,7 +30,7 @@ function SearchResults() {
     <div>
       <div>
         <LogoImage />
-        <SearchBar value={search} />
+        <SearchBar setInputSearch={setValueSearch} inputSearch={valueSearch} />
       </div>
       <h2>Resultados de la búsqueda para: {search}</h2>
       <div>

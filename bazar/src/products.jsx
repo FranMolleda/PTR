@@ -1,4 +1,4 @@
-import axios from "axios";
+/* import axios from "axios";
 
 export const getProduts = async () => {
   try {
@@ -8,4 +8,4 @@ export const getProduts = async () => {
   } catch (error) {
     console.log(error);
   }
-};
+}; */

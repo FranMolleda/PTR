@@ -1,12 +1,9 @@
-import { useState } from "react";
 import "./SearchBar.css";
+import { Link } from "react-router-dom";
 
-const SearchBar = ({ setInputSearch, value }) => {
-  const [inputValue, setInputValue] = useState(value || "");
-
+const SearchBar = ({ setInputSearch, inputSearch }) => {
   const handleInput = (e) => {
     const characters = e.target.value;
-    setInputValue(characters);
     setInputSearch(characters);
   };
 
@@ -17,9 +14,11 @@ const SearchBar = ({ setInputSearch, value }) => {
           className="inputSearchBar"
           onChange={(e) => handleInput(e)}
           placeholder="laptops, smartphones, ..."
-          value={inputValue}
+          value={inputSearch}
         />
-        <div className="searchIcon">🔍</div>
+        <Link to={`/items?search=${inputSearch}`}>
+          <div className="searchIcon">🔍</div>
+        </Link>
       </div>
     </div>
   );
