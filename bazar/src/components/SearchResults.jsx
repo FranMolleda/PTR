@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import SearchBar from "./ui/SearchBar";
 import LogoImage from "./images/LogoImage";
+import ReturnButton from "./ui/ReturnButton";
 
 function SearchResults() {
   const location = useLocation();
   const search = new URLSearchParams(location.search).get("search");
   const [productsSearched, setProductsSearched] = useState([]);
+  const [valueSearch, setValueSearch] = useState(search || "");
 
   useEffect(() => {
     const filterItems = async () => {
@@ -28,7 +30,7 @@ function SearchResults() {
     <div>
       <div>
         <LogoImage />
-        <SearchBar />
+        <SearchBar setInputSearch={setValueSearch} inputSearch={valueSearch} />
       </div>
       <h2>Resultados de la búsqueda para: {search}</h2>
       <div>
@@ -38,6 +40,7 @@ function SearchResults() {
           </Link>
         ))}
       </div>
+      <ReturnButton />
     </div>
   );
 }

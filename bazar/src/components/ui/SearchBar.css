@@ -1,0 +1,33 @@
+/* SearchBar.css */
+
+.containerSearchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .inputContainer {
+    position: relative;
+    width: 100%; /* Utiliza el ancho completo del contenedor */
+    max-width: 300px; /* Establece un ancho máximo según tus preferencias */
+  }
+  
+  .inputSearchBar {
+    background-color: rgb(226 226 226 / 52%);
+    border-style: none;
+    height: 2em;
+    font-family: monospace;
+    font-size: 1.4em;
+    font-weight: 700;
+    padding: 0.4em;
+    width: 100%; /* Utiliza el ancho completo del contenedor */
+  }
+  
+  .searchIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+  }
+  
