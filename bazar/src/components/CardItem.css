@@ -1,0 +1,95 @@
+
+/* Contenedor */
+.cardItem-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    height: 300px;
+  }
+
+
+/* Imagen */
+.cardItem-image {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cardItem-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Esto asegura que la imagen mantenga su aspecto */
+  border-radius: 50%; /* Esto hará que la imagen sea redonda */
+}
+
+/* Tarjeta Info */
+
+.cardItem-info {
+  height: 300px;
+  padding: 0 2rem 0 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: black;
+  overflow: hidden; /* Agrega overflow: hidden al contenedor principal */
+}
+
+.cardItem-info h5{
+  font-size: 1.5rem;
+}
+
+.cardItem-info p {
+  margin: 0; 
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Ajusta este valor para limitar a cierto número de líneas */
+  -webkit-box-orient: vertical;
+}
+
+.cardItem-price-rating{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+  
+/* Estilos para móvil */
+@media (max-width: 600px) {
+    .cardItem-container {
+      max-width: 100%;
+    }
+  
+    .cardItem-image img{
+      width: 80px;
+      height: 80px;
+    }
+  
+    .cardItem-info {
+      padding-left: 10px;
+    }
+  }
+  
+  /* Estilos para tablet */
+  @media (min-width: 601px) and (max-width: 1024px) {
+  
+    .cardItem-image img{
+      width: 110px;
+      height: 110px;
+    }
+  }
+  
+  /* Estilos para pantalla de ordenador */
+  @media (min-width: 1025px) {
+  
+    .cardItem-image img{
+      width: 130px;
+      height: 130px;
+    }
+  }
+  
