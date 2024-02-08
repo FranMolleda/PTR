@@ -1,0 +1,85 @@
+
+.detailItem-return-button{
+    display: flex;
+}
+
+.detailItem-logo-search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+  
+.detailItem-images-container {
+    display: flex;
+    height: 50%;
+    align-items: center;
+}
+  
+.detailItem-firstImageItem {
+    flex: 2; /* Ocupa 2/3 del ancho del contenedor */
+    border-radius: 50%; /* Haz que el borde sea redondo */
+}
+
+.detailItem-firstImageItem img{
+    height: 100%; /* Ocupa el 100% de la altura del contenedor */
+}
+  
+.detailItem-restImagesItem {
+    flex: 1; /* Ocupa 1/3 del ancho del contenedor */
+    display: flex;
+    flex-direction: column;
+    /* Ocupa el 100% de la altura del contenedor */
+    overflow-y: auto; /* Agrega desplazamiento vertical cuando sea necesario */
+}
+  
+.detailItem-imageItem {
+    flex: 1; /* Cada imagen ocupa el mismo espacio */
+    border: 1px solid #ccc; /* Solo para visualización */
+    border-radius: 50%;
+    margin: 5px; /* Agrega un poco de margen entre las imágenes */
+    min-height: 9vw; /* Altura mínima relativa al 15% del ancho de la ventana */
+    max-height: 100px; /* Altura máxima de 100px */
+    aspect-ratio: 1/1; /* Mantén la relación de aspecto 1:1 (cuadrada) */
+}
+
+.detailItem-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+.detailItem-info-group{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60%;
+    height: 3rem;
+}
+
+.detailItem-price-stock{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detailItem-price-stock h3 {
+  margin: 0;
+  font-weight: 900;
+  font-size: larger;
+}
+
+.detailItem-price-stock p{
+  margin: 0;
+  font-weight: 700;
+}
+
+.detailItem-buy-button{
+  background-color: #F646DA;
+  box-shadow: 0 5px 10px #8A0E96;
+  width: 60%;
+  font-size: x-large;
+  margin: 3rem;
+}
+  
+  
