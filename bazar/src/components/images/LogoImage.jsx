@@ -1,12 +1,13 @@
 import envioLogo from "/envio.png";
 import "./LogoImage.css";
+import { Link } from "react-router-dom";
 
 const LogoImage = () => {
   return (
     <div className="logoImageContainer">
-      <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+      <Link to="/"  rel="noreferrer">
         <img src={envioLogo} className="logo" alt="Vite logo" />
-      </a>
+      </Link>
     </div>
   );
 };
